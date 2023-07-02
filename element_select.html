@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <div id="my_div">
+        <input id="my_input" value="value"/>
+        <button id="my_button1">Button1</button>
+        <button id="my_button2">Button2</button>
+        <button id="my_button3" class="name">Button2</button>
+    </div>
+
+    <py-script>
+        # 親エレメントの取得
+        my_div = Element('my_div')
+
+        # my_div の子からエレメントを選択
+        print(my_div.select('input').id)
+        print(my_div.select('button').id)  # 複数ある場合は先に定義したほう
+        print(my_div.select('#my_button2').id)  # id を指定して取得
+        print(my_div.select('.name').id)  # class を指定して取得
+    </py-script>
+</body>
+</html>
