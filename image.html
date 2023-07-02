@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <div id="canvas"></div>
+    <py-config>
+        packages = ["pillow"]
+
+        [[fetch]]
+        from = "image"
+        files = ["face.png"]
+    </py-config>
+    <py-script>
+        from PIL import Image
+
+        # サブフォルダ名の指定は不要
+        img = Image.open('face.png')
+
+        # 取得したエレメントに書き込む
+        canvas = Element('canvas')
+        canvas.write(img)
+    </py-script>
+</body>
+</html>
