@@ -13,8 +13,15 @@
     <span id="my_div" py-mouseover="hello()">マウスオーバー</span>
 
     <py-script>
+        from pyscript import when
+
         def hello():
             print('Hello')
+
+        # 関数に when デコレータを設定すると、html 側で py-* イベントを指定しなくても呼ばれる
+        @when('click', selector='#my_button')
+        def bye():
+            print('Bye')
     </py-script>
 </body>
 </html>
