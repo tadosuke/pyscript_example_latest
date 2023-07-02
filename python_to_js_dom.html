@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>Python to Js DOM</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <div id="my_div">content</div>
+    <input id="my_input" value="value"/>
+
+    <py-script>
+        # JavaScript の要素を使う際にはインポートが必要
+        from js import document, window, console
+
+        console.log('Hello')  # 開発者ツールのコンソール（Chrome なら F12）などで確認できる
+        print(f'{window.innerWidth=}')
+        print(f'{document.title=}')
+    </py-script>
+</body>
+</html>
