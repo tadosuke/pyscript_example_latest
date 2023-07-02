@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <py-script>
+        name = 'tadosuke'
+
+        def func(name_):
+            return f'Hello {name_}'
+
+        class Hoge:
+            def hello(self):
+                return 'Hello Hoge'
+        hoge = Hoge()
+    </py-script>
+
+    <button onclick="jsFunc()">jsFunc</button>
+    <script>
+        function jsFunc(){
+            // Python 側のグローバル変数・関数を取得
+            py_name = pyscript.interpreter.globals.get('name')
+            py_func = pyscript.interpreter.globals.get('func')
+            py_hoge = pyscript.interpreter.globals.get('hoge')
+
+            console.log(py_func(py_name))  // グローバル関数を呼び出す
+            console.log(py_hoge.hello())  // インスタンス経由での呼び出しも可能
+        }
+    </script>
+
+</body>
+</html>
