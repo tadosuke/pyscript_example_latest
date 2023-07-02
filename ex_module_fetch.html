@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <!-- ローカルのモジュールを読み込む -->
+    <py-config>
+        [[fetch]]
+        files = ["./ex_module.py"]
+    </py-config>
+    <py-script>
+        import ex_module
+
+        print(f'{ex_module.x=}')
+    </py-script>
+</body>
+</html>
