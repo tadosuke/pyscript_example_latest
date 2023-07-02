@@ -10,11 +10,16 @@
     <py-config>
         [[fetch]]
         files = ["./ex_module.py"]
+
+        [[fetch]]
+        from = "sub"
+        files = ["ex_module_sub.py"]
     </py-config>
     <py-script>
         import ex_module
+        import ex_module_sub  # import 時はサブディレクトリを指定しない
 
-        print(f'{ex_module.x=}')
+        print(f'{ex_module.x=}')  # モジュール内変数にもアクセス可能
     </py-script>
 </body>
 </html>
