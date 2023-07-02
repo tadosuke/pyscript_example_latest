@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <py-config>
+      packages = ["requests", "pyodide-http"]
+    </py-config>
+    <py-script>
+        import requests
+        import pyodide_http
+
+        # PyScript では requests をそのまま利用できないので、
+        # pyodide_http を使用してパッチをあてる
+        pyodide_http.patch_all()
+
+        # 以降は通常通り使える
+        response = requests.get("https://httpbin.org/get")
+        print(response.json())
+    </py-script>
+</body>
+</html>
