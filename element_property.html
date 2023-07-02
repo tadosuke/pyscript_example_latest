@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- PyScript を使うために必要な2行 -->
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <div id="my_div">content</div>
+    <input id="my_input" value="value"/>
+
+    <py-script>
+        from pyscript import Element
+
+        # エレメントの取得(idを指定する)
+        my_div = Element('my_div')
+        my_input = Element('my_input')
+
+        # content, value を取得
+        print(f'{my_div.innerHtml=}')
+        print(f'{my_input.value=}')
+    </py-script>
+</body>
+</html>
