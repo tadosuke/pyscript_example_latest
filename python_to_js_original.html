@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <div id="my_div">content</div>
+    <input id="my_input" value="value"/>
+
+    <script>
+        name = "tadosuke"
+
+        function hello(name){
+            console.log("Hello " + name)
+        }
+    </script>
+
+    <py-script>
+        # 変数名、関数名を import に指定する
+        from js import name, hello
+
+        hello(name)
+    </py-script>
+</body>
+</html>
