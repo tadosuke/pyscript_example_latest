@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+  <div id="game">
+    <input id="guess" type="number" min="0" max="100">
+    <button id="submit">Guess</button>
+    <p id="message"></p>
+  </div>
+  <py-script>
+    from random import randint
+    from pyscript import Element, when
+
+    # Generate a random number between 0 and 100
+    number_to_guess = randint(0, 100)
+
+    # Get the necessary elements
+    guess_input = Element('guess')
+    submit_button = Element('submit')
+    message = Element('message')
+
+    @when('click', selector='#submit')
+    def check_guess():
+        guess = int(guess_input.value)
+        if guess < number_to_guess:
+            message.write('大きい')
+        elif guess > number_to_guess:
+            message.write('小さい')
+        else:
+            message.write('正解！')
+  </py-script>
+</body>
+</html>
